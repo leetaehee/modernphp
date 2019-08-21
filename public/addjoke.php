@@ -22,4 +22,4 @@
         include __DIR__ . '/../templates/addjoke.html.php';
         $output = ob_get_clean();
     }
-    include __DIR__ .'./../templates/layout.html.php';
+    include __DIR__ .'/../templates/layout.html.php';

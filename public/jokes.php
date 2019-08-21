@@ -7,14 +7,11 @@
          * title: 유머글 사이트 만들기
          * view: 화면: /../templates/layout.html.php
          */
-        $sql = 'SELECT `id`,`joketext` FROM `joke`';
-        // 아래 구문으로 변경
-        /*
-        $result = $pdo->query($sql);
-        while($row=$result->fetch()){
-            $jokes[]=$row['joketext'];
-        }
-        */
+        $sql = 'SELECT `joke`.`id`,`joketext`,`name`,`email` 
+                 FROM `joke` 
+                  INNER JOIN `author`
+                    ON `authorid` = `author`.`id` 
+               ';
         $jokes = $pdo->query($sql);
 
         $title = '유머 글 목록';
