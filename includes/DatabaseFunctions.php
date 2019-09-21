@@ -80,6 +80,10 @@
         query($pdo, $query, $parameters);
     }
 
+    /**
+     * @param $pdo
+     * @param $id
+     */
     function deleteJoke($pdo, $id)
     {
         $query = 'DELETE FROM `joke` WHERE `id` = :id';
