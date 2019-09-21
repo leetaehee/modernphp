@@ -2,7 +2,7 @@
     if(isset($_POST['joketext'])){
         include_once __DIR__ . '/../includes/DatabaseConnection.php';
         include_once __DIR__ . '/../includes/DatabaseFunctions.php';
-        
+
         try {
             insertJoke($pdo, $_POST['joketext'], 3);
 

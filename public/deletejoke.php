@@ -4,7 +4,7 @@
 
     try {
         deleteJoke($pdo, $_POST['id']);
-        
+
         header('location: jokes.php');
     } catch (PDOException $e) {
         $title = '오류가 발생했습니다.';
