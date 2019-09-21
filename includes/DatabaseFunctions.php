@@ -91,6 +91,10 @@
         query($pdo, $query, $parameters);
     }
 
+    /**
+     * @param $pdo
+     * @return mixed
+     */
     function allJokes($pdo)
     {
         $query = 'SELECT `joke`.`id`, `joketext`, `name`, `email`
