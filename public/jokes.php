@@ -1,20 +1,13 @@
 <?php
-    try {
-        $pdo = new PDO('mysql:host=localhost;dbname=ijdb','ijdb','Modernijdb1234@');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+    include_once __DIR__ . '/../includes/DatabaseConnection.php';
+    include_once __DIR__ . '/../includes/DatabaseFunctions.php';
 
-        /*
-         * title: 유머글 사이트 만들기
-         * view: 화면: /../templates/layout.html.php
-         */
-        $sql = 'SELECT `joke`.`id`,`joketext`,`name`,`email` 
-                 FROM `joke` 
-                  INNER JOIN `author`
-                    ON `authorid` = `author`.`id` 
-               ';
-        $jokes = $pdo->query($sql);
+    try {
+        $jokes = allJokes($pdo);
 
         $title = '유머 글 목록';
+
+        $totalJokes = totalJokes($pdo);
 
         // 버퍼 저장 시작.
         ob_start();

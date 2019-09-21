@@ -1,14 +1,10 @@
 <?php
+    include_once __DIR__ . '/../includes/DatabaseConnection.php';
+    include_once __DIR__ . '/../includes/DatabaseFunctions.php';
+
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=ijdb;charset=utf8', 'ijdb', 'Modernijdb1234@');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $sql = 'DELETE FROM `joke` where `id` = :id';
-
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':id',$_POST['id']);
-        $stmt->execute();
-
+        deleteJoke($pdo, $_POST['id']);
+        
         header('location: jokes.php');
     } catch (PDOException $e) {
         $title = '오류가 발생했습니다.';

@@ -1,15 +1,11 @@
 <?php
     if(isset($_POST['joketext'])){
+        include_once __DIR__ . '/../includes/DatabaseConnection.php';
+        include_once __DIR__ . '/../includes/DatabaseFunctions.php';
+        
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=ijdb;charset=utf8','ijdb','Modernijdb1234@');
-            $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+            insertJoke($pdo, $_POST['joketext'], 3);
 
-            $sql = ' INSERT INTO `joke` SET
-                      `joketext` = :joketext,
-                      `jokedate` = CURDATE()';
-            $stmt = $pdo->prepare($sql);
-            $stmt->bindValue(':joketext',$_POST['joketext']);
-            $stmt->execute();
             header('location: jokes.php');
         } catch (PDOException $e) {
             $title = '오류가 발생했습니다.';
@@ -18,6 +14,7 @@
         }
     }else{
         $title = '유머 글 등록';
+
         ob_start();
         include __DIR__ . '/../templates/addjoke.html.php';
         $output = ob_get_clean();
