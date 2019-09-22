@@ -5,9 +5,11 @@
         <p>
             <?=htmlspecialchars($joke['joketext'],ENT_QUOTES,'utf-8')?>
             (작성자:
-            <a href="mailto:<?php echo htmlspecialchars($joke['email'],ENT_QUOTES,'utf-8');?>">
-                <?php echo htmlspecialchars($joke['name'],ENT_QUOTES,'utf-8');?>
-            </a>)
+            <a href="mailto:<?=htmlspecialchars($joke['email'],ENT_QUOTES,'utf-8');?>">
+                <?=htmlspecialchars($joke['email'],ENT_QUOTES,'utf-8');?>
+                <?=htmlspecialchars($joke['name'],ENT_QUOTES,'utf-8');?>
+            </a>
+            작성일: <?=$joke['jokedate']?>)
 
             <a href="editjoke.php?id=<?=$joke['id']?>">수정</a>
 

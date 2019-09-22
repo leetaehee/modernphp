@@ -5,7 +5,12 @@
     try {
 
         if (isset($_POST['joketext'])) {
-            updateJoke($pdo, $_POST['jokeid'], $_POST['joketext'], 3);
+            updateJoke($pdo, [
+                'id'=> $_GET['id'],
+                'authorid'=> 3,
+                'joketext'=> $_POST['joketext'],
+                'jokedate'=> new DateTime()
+            ]);
 
             header('location: jokes.php');
         } else {

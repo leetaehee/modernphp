@@ -4,7 +4,11 @@
         include_once __DIR__ . '/../includes/DatabaseFunctions.php';
 
         try {
-            insertJoke($pdo, $_POST['joketext'], 3);
+            insertJoke($pdo,[
+                'authorid'=> 3,
+                'joketext'=> $_POST['joketext'],
+                'jokedate'=> new DateTime()
+            ]);
 
             header('location: jokes.php');
         } catch (PDOException $e) {
