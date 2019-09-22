@@ -3,7 +3,21 @@
     include_once __DIR__ . '/../includes/DatabaseFunctions.php';
 
     try {
-        $jokes = allJokes($pdo);
+        $result = findAll($pdo, 'joke');
+
+        $jokes = [];
+
+        foreach ($result as $joke) {
+            $author = findById($pdo, 'author', 'id', $joke['authorid']);
+
+            $jokes[] = [
+              'id'=> $joke['id'],
+              'joketext'=> $joke['joketext'],
+              'jokedate'=> $joke['jokedate'],
+              'name'=> $author['name'],
+              'email'=> $author['email']
+            ];
+        }
 
         $title = '유머 글 목록';
 

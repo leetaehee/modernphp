@@ -6,9 +6,9 @@
 </head>
 <body>
 <form action="" method="post">
-    <input type="hidden" name="jokeid" value="<?=$joke['id']?>">
+    <input type="hidden" name="joke[id]" value="<?=$joke['id'] ?? ''?>">
     <label for="joketext">유머 글을 입력해주세요.</label>
-    <textarea id="joketext" name="joketext" row="3" cols="40"><?=$joke['joketext']?></textarea>
+    <textarea id="joketext" name="joke[joketext]" row="3" cols="40"><?=$joke['joketext'] ?? ''?></textarea>
     <input type="submit" name="submmit" value="등록">
 </form>
 </body>

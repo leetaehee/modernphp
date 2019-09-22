@@ -4,7 +4,7 @@
         include_once __DIR__ . '/../includes/DatabaseFunctions.php';
 
         try {
-            insertJoke($pdo,[
+            insert($pdo, 'joke',[
                 'authorid'=> 3,
                 'joketext'=> $_POST['joketext'],
                 'jokedate'=> new DateTime()

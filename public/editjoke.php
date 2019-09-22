@@ -3,18 +3,23 @@
     include_once __DIR__ . '/../includes/DatabaseFunctions.php';
 
     try {
+        if (isset($_POST['joke'])) {
 
-        if (isset($_POST['joketext'])) {
-            updateJoke($pdo, [
-                'id'=> $_GET['id'],
-                'authorid'=> 3,
-                'joketext'=> $_POST['joketext'],
-                'jokedate'=> new DateTime()
-            ]);
+            $joke = $_POST['joke'];
+            $joke['jokedate'] = new DateTime();
+            $joke['authorid'] = 3;
+
+            // insert와 update 모두 실행
+            save($pdo, 'joke', 'id', $joke);
+
+            // update 만 실행
+            //update($pdo, 'joke', 'id', $joke);
 
             header('location: jokes.php');
         } else {
-            $joke = getJoke($pdo, $_GET['id']);
+            if (isset($_GET['id'])) {
+                $joke = findById($pdo, 'joke', 'id', $_GET['id']);
+            }
 
             $title = '유머 글 수정';
 
