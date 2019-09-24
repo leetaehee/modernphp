@@ -1,9 +1,11 @@
 <?php
-    include_once __DIR__ . '/../includes/DatabaseConnection.php';
-    include_once __DIR__ . '/../includes/DatabaseFunctions.php';
-
     try {
-        delete($pdo, 'joke', 'id', $_POST['id']);;
+        include __DIR__ . '/../includes/DatabaseConnection.php';
+        include __DIR__ . '/../classes/DatabaseTable.php';
+
+        $jokeTable = new DatabaseTable($pdo, 'joke', 'id');
+
+        $jokeTable->delete($_POST['id']);
 
         header('location: jokes.php');
     } catch (PDOException $e) {
