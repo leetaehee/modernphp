@@ -52,7 +52,7 @@
         {
             $this->jokesTable->delete($_POST['id']);
 
-            header('location: jokes.php');
+            header('location: index.php?action=list');
         }
 
         public function edit()
@@ -64,7 +64,7 @@
 
                 $this->jokesTable->save($joke);
 
-                header('location: jokes.php');
+                header('location: index.php?action=list');
             } else {
 
                 if (isset($_GET['id'])){
