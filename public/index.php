@@ -16,11 +16,23 @@
        $jokesTable = new DataBaseTable($pdo, 'joke', 'id');
        $authorsTable = new DatabaseTable($pdo, 'author', 'id');
 
-       $jokeController = new JokeController($jokesTable, $authorsTable);
-
        $action = $_GET['action'] ?? 'home';
 
-       $page = $jokeController->$action();
+       $controllerName = $_GET['controller'] ?? 'joke';
+
+       $page = [];
+
+       if ($action == strtolower($action) && $controllerName == strtolower($controllerName)) {
+           $className = ucfirst($controllerName) . 'Controller';
+
+           include_once __DIR__ . '/../controllers/' . $className . '.php';
+
+           $controller = new $className($jokesTable, $authorsTable);
+           $page = $controller->$action();
+       } else {
+           http_response_code(301);
+           header('location: index.php?controller='. strtolower($controller). '&action=' . strtolower($action));
+       }
 
        $title = $page['title'];
 
@@ -28,7 +40,6 @@
            $output = loadTemplate($page['template'], $page['variables']);
        } else {
            $output = loadTemplate($page['template']);
-
        }
     } catch (PDOException $e) {
         $output = '데이터베이스 서버에 접속 할 수 없습니다: '.$e->getMessage().', 위치: '.$e->getFile().':'.$e->getLine();
