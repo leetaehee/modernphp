@@ -11,27 +11,36 @@
     try {
        include_once __DIR__ . '/../includes/DatabaseConnection.php';
        include_once __DIR__ . '/../classes/DatabaseTable.php';
-       include_once __DIR__ . '/../controllers/JokeController.php';
 
        $jokesTable = new DataBaseTable($pdo, 'joke', 'id');
        $authorsTable = new DatabaseTable($pdo, 'author', 'id');
 
-       $action = $_GET['action'] ?? 'home';
-
-       $controllerName = $_GET['controller'] ?? 'joke';
-
        $page = [];
 
-       if ($action == strtolower($action) && $controllerName == strtolower($controllerName)) {
-           $className = ucfirst($controllerName) . 'Controller';
+       // route 변수가 없으면 'joke/home'을 할당
+       $route = ltrim(strtok($_SERVER['REQUEST_URI'], '?'), '/');
 
-           include_once __DIR__ . '/../controllers/' . $className . '.php';
-
-           $controller = new $className($jokesTable, $authorsTable);
-           $page = $controller->$action();
+       if ($route == strtolower($route)) {
+           if ($route == 'joke/list') {
+               include_once __DIR__ . '/../controllers/JokeController.php';
+               $controller = new JokeController($jokesTable, $authorsTable);
+               $page = $controller->list();
+           } elseif ($route == '') {
+               include_once __DIR__ . '/../controllers/JokeController.php';
+               $controller = new JokeController($jokesTable, $authorsTable);
+               $page = $controller->home();
+           } elseif ($route == 'joke/edit') {
+               include_once __DIR__ . '/../controllers/JokeController.php';
+               $controller = new JokeController($jokesTable, $authorsTable);
+               $page = $controller->edit();
+           } elseif ($route == 'joke/delete') {
+               include_once __DIR__ . '/../controllers/JokeController.php';
+               $controller = new JokeController($jokesTable, $authorsTable);
+               $page = $controller->delete();
+           }
        } else {
            http_response_code(301);
-           header('location: index.php?controller='. strtolower($controller). '&action=' . strtolower($action));
+           header('location: index.php?route=' . strtolower($route));
        }
 
        $title = $page['title'];

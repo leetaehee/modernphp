@@ -11,13 +11,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="index.php">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                    <a href="index.php?action=list">유머 글 목록</a>
+                    <a href="/joke/list">유머 글 목록</a>
                 </li>
                 <li>
-                    <a href="index.php?action=edit">유머 글 등록</a>
+                    <a href="/joke/edit">유머 글 등록</a>
                 </li>
             </ul>
         </nav>
