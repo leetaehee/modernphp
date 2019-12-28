@@ -1,5 +1,8 @@
 <?php
-    class JokeController
+    namespace Ijdb\Controller;
+    use \Hanbit\DatabaseTable;
+
+    class Joke
     {
         private $authorsTable;
         private $jokesTable;

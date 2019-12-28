@@ -1,4 +1,6 @@
 <?php
+    namespace Hanbit;
+
     class EntryPoint
     {
         private $route;
@@ -24,7 +26,7 @@
             extract($variables);
 
             ob_start();
-            include __DIR__ . '/../templates/' . $templateFileName;
+            include __DIR__ . '/../../templates/' . $templateFileName;
 
             return ob_get_clean();
         }
@@ -40,6 +42,6 @@
                 $output = $this->loadTemplate($page['template']);
             }
 
-            include __DIR__ . '/../templates/layout.html.php';
+            include __DIR__ . '/../../templates/layout.html.php';
         }
     }
