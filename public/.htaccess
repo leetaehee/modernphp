@@ -1,4 +1,4 @@
-RewriteEngine On
+RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ /index.php [NC,L,QSA8""
+RewriteRule ^.*$ /index.php [NC,L,QSA]
