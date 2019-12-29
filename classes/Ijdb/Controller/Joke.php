@@ -62,7 +62,7 @@
         {
             if (isset($_POST['joke'])){
                 $joke = $_POST['joke'];
-                $joke['jokedate'] = new DateTime();
+                $joke['jokedate'] = new \DateTime();
                 $joke['authorid'] = 3;
 
                 $this->jokesTable->save($joke);
