@@ -8,24 +8,46 @@
             include __DIR__ . '/../../includes/DatabaseConnection.php';
 
             $jokeTable = new \Hanbit\DatabaseTable($pdo, 'joke', 'id');
-            $authorsTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
+            $authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
 
-            $page = [];
+            $jokeController = new \Ijdb\Controller\Joke($jokeTable, $authorTable);
 
-            if ($route == 'joke/list') {
-                $controller = new \Ijdb\Controller\Joke($jokeTable, $authorsTable);
-                $page = $controller->list();
-            } elseif ($route == '') {
-                $controller = new \Ijdb\Controller\Joke($jokeTable, $authorsTable);
-                $page = $controller->home();
-            } elseif ($route == 'joke/edit') {
-                $controller = new \Ijdb\Controller\Joke($jokeTable, $authorsTable);
-                $page = $controller->edit();
-            } elseif ($route == 'joke/delete') {
-                $controller = new \Ijdb\Controller\Joke($jokeTable, $authorsTable);
-                $page = $controller->delete();
-            }
+            $routes = [
+                'joke/edit'=> [
+                    'POST'=> [
+                        'controller'=> $jokeController,
+                        'action'=> 'saveEdit'
+                    ],
+                    'GET'=> [
+                        'controller'=> $jokeController,
+                        'action'=> 'edit'
+                    ]
+                ],
+                'joke/delete'=> [
+                    'POST'=> [
+                        'controllers'=> $jokeController,
+                        'action'=> 'delete'
+                    ]
+                ],
+                'joke/list'=> [
+                    'GET'=> [
+                        'controller'=> $jokeController,
+                        'action'=> 'list'
+                    ]
+                ],
+                ''=> [
+                    'GET'=> [
+                        'controller'=> $jokeController,
+                        'action'=> 'home'
+                    ]
+                ]
+            ];
 
-            return $page;
+            $method = $_SERVER['REQUEST_METHOD'];
+
+            $controller =$routes[$route][$method]['controller'];
+            $action = $routes[$route][$method]['action'];
+
+            return $controller->$action();
         }
     }
