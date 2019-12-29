@@ -3,7 +3,7 @@
 
     class IjdbRoutes
     {
-        public function callAction($route)
+        public function getRoutes()
         {
             include __DIR__ . '/../../includes/DatabaseConnection.php';
 
@@ -43,11 +43,6 @@
                 ]
             ];
 
-            $method = $_SERVER['REQUEST_METHOD'];
-
-            $controller =$routes[$route][$method]['controller'];
-            $action = $routes[$route][$method]['action'];
-
-            return $controller->$action();
+            return $routes;
         }
     }
