@@ -1,7 +1,7 @@
 <?php
     namespace Ijdb;
 
-    class IjdbRoutes
+    class IjdbRoutes implements \Hanbit\Routes
     {
         public function getRoutes()
         {

@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f92cc00c-f916-45dd-a0cf-001704786f4a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,26 +47,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Hanbit/EntryPoint.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+            <state relative-caret-position="85">
+              <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/classes/Hanbit/EntryPoint.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/classes/Hanbit/Routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-223">
-              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+            <state relative-caret-position="92">
+              <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -119,13 +128,14 @@
         <option value="$PROJECT_DIR$/classes/EntryPoint.php" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
         <option value="$PROJECT_DIR$/classes/IjdbRoutes.php" />
-        <option value="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" />
         <option value="$PROJECT_DIR$/templates/editjoke.html.php" />
         <option value="$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php" />
-        <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/includes/autoload.php" />
-        <option value="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/classes/Hanbit/Routes.php" />
+        <option value="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" />
+        <option value="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" />
       </list>
     </option>
   </component>
@@ -204,9 +214,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/classes/Hanbit" />
       <recent name="$PROJECT_DIR$/classes/Ijdb" />
       <recent name="$PROJECT_DIR$/classes/Ijdb/Controller" />
-      <recent name="$PROJECT_DIR$/classes/Hanbit" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -245,7 +255,7 @@
       <workItem from="1577600816601" duration="314000" />
       <workItem from="1577601438364" duration="219000" />
       <workItem from="1577601714896" duration="245000" />
-      <workItem from="1577619768892" duration="2170000" />
+      <workItem from="1577619768892" duration="3168000" />
     </task>
     <task id="LOCAL-00001" summary="라우터 기능 완료 &#10;2019-12-28 &#10;이태희 &#10;어달해변 투썸플레이스에서 작업완료 &#10;20:40 마무리">
       <created>1577533246515</created>
@@ -296,11 +306,25 @@
       <option name="project" value="LOCAL" />
       <updated>1577582567689</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="IjdbRoutes  Route 기능 배열에 담기.">
+      <created>1577622825610</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1577622825610</updated>
+    </task>
+    <task id="LOCAL-00009" summary="IjdbRoutes  Route  EntryPoint, IjdbRoutes 클래스 정리">
+      <created>1577623338511</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1577623338511</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22176000" />
+    <option name="totallyTimeSpent" value="23174000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -315,7 +339,7 @@
     <frame x="0" y="23" width="1680" height="979" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2973138" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2973138" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,8 +351,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298611" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3298611" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" visible="true" weight="0.33796296" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3298611" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" weight="0.33796296" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061053" side_tool="true" weight="0.33796296" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4993895" weight="0.3298611" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -392,7 +416,9 @@
     <MESSAGE value="git test-12" />
     <MESSAGE value="git." />
     <MESSAGE value="init." />
-    <option name="LAST_COMMIT_MESSAGE" value="init." />
+    <MESSAGE value="IjdbRoutes  Route 기능 배열에 담기." />
+    <MESSAGE value="IjdbRoutes  Route  EntryPoint, IjdbRoutes 클래스 정리" />
+    <option name="LAST_COMMIT_MESSAGE" value="IjdbRoutes  Route  EntryPoint, IjdbRoutes 클래스 정리" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1f87c5f1-c838-4894-a2a6-426913dff89a/console.sql">
@@ -456,13 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -484,17 +503,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Hanbit/EntryPoint.php">
+    <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        <state relative-caret-position="85">
+          <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Hanbit/Routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-223">
-          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        <state relative-caret-position="92">
+          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Hanbit/EntryPoint.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="17" column="35" lean-forward="true" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
