@@ -50,6 +50,22 @@
         }
 
         /**
+         * 컬럼을 받아서 해당 컬럼으로 데이터 조회
+         */
+        public function find($column, $value)
+        {
+            $query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = :value';
+
+            $parameters = [
+              'value'=> $value
+            ];
+
+            $query = $this->query($query, $parameters);
+
+            return $query->fetchAll();
+        }
+
+        /**
          * 테이블 데이터 삽입
          */
         private function insert($fields)
@@ -73,6 +89,8 @@
             $query .= ')';
 
             $fields = $this->processDates($fields);
+
+            echo $query;
 
             $this->query($query, $fields);
         }

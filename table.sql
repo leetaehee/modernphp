@@ -1,4 +1,4 @@
-# 작성자 테이블
+# 작성자 테이블  (password 컬럼이 추가 되기 전)
 CREATE TABLE `author` (
   `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `name` VARCHAR(255),
@@ -8,6 +8,15 @@ CREATE TABLE `author` (
 # 작성자 테이블에 데이터 삽입
 INSERT INTO `author` SET `id`=1,`name`='Kevin Yank',`email`='thatguy@kevinyank.com';
 INSERT INTO `author` SET `id`=2,`name`='Tom Butler',`email`='tom@r.je';
+
+# 작성자 테이블 (password 컬럼이 추가 된 후)
+CREATE TABLE `author` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 # 유머게시판 테이블
 CREATE TABLE `joke` (

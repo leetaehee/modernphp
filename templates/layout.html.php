@@ -2,6 +2,7 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="/jokes.css">
         <title><?=$title?></title>
     </head>
     <body>

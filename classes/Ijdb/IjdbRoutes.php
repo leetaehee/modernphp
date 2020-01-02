@@ -11,6 +11,7 @@
             $authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
 
             $jokeController = new \Ijdb\Controller\Joke($jokeTable, $authorTable);
+            $authorController = new \Ijdb\Controller\Register($authorTable);
 
             $routes = [
                 'joke/edit'=> [
@@ -39,6 +40,22 @@
                     'GET'=> [
                         'controller'=> $jokeController,
                         'action'=> 'home'
+                    ]
+                ],
+                'author/register'=> [
+                    'GET'=> [
+                        'controller'=> $authorController,
+                        'action'=> 'registrationForm'
+                    ],
+                    'POST'=> [
+                        'controller'=> $authorController,
+                        'action'=> 'registerUser'
+                    ]
+                ],
+                'author/success'=> [
+                    'GET'=> [
+                        'controller'=> $authorController,
+                        'action'=> 'success'
                     ]
                 ]
             ];
