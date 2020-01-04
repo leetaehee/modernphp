@@ -6,5 +6,6 @@
         <input type="submit" name="submmit" value="등록">
     </form>
 <?php else: ?>
-    <p>자신이 작성한 글만 수정할 수 있습니다.</p>
+    <p>로그인한 계정으로만 글을 쓸 수 있습니다.</p>
+    <p>다른 사람 계정으로는 수정 할 수 없습니다.</p>
 <?php endif; ?>
