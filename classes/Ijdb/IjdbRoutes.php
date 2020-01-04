@@ -3,15 +3,24 @@
 
     class IjdbRoutes implements \Hanbit\Routes
     {
-        public function getRoutes()
+        private $authorTable;
+        private $jokesTable;
+        private $authentication;
+
+        public function __construct()
         {
             include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-            $jokeTable = new \Hanbit\DatabaseTable($pdo, 'joke', 'id');
-            $authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
+            $this->jokesTable = new \Hanbit\DatabaseTable($pdo, 'joke', 'id');
+            $this->authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
+            $this->authentication = new \Hanbit\Authentication($this->authorTable, 'email', 'password');
+        }
 
-            $jokeController = new \Ijdb\Controller\Joke($jokeTable, $authorTable);
-            $authorController = new \Ijdb\Controller\Register($authorTable);
+        public function getRoutes() : array
+        {
+            $jokeController = new \Ijdb\Controller\Joke($this->jokesTable, $this->authorTable, $this->authentication);
+            $authorController = new \Ijdb\Controller\Register($this->authorTable);
+            $loginController = new \Ijdb\Controller\Login($this->authentication);
 
             $routes = [
                 'joke/edit'=> [
@@ -22,13 +31,15 @@
                     'GET'=> [
                         'controller'=> $jokeController,
                         'action'=> 'edit'
-                    ]
+                    ],
+                    'login'=> true
                 ],
                 'joke/delete'=> [
                     'POST'=> [
-                        'controllers'=> $jokeController,
+                        'controller'=> $jokeController,
                         'action'=> 'delete'
-                    ]
+                    ],
+                    'login'=> true
                 ],
                 'joke/list'=> [
                     'GET'=> [
@@ -57,9 +68,43 @@
                         'controller'=> $authorController,
                         'action'=> 'success'
                     ]
+                ],
+                'login/error'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'error'
+                    ]
+                ],
+                'login'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'loginForm'
+                    ],
+                    'POST'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'processLogin'
+                    ]
+                ],
+                'login/success'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'success'
+                    ],
+                    'login'=> true
+                ],
+                'logout'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'logout'
+                    ]
                 ]
             ];
 
             return $routes;
+        }
+
+        public function getAuthentication() : \Hanbit\Authentication
+        {
+            return $this->authentication;
         }
     }

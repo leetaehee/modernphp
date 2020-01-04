@@ -11,12 +11,16 @@
             </a>
             작성일: <?=$joke['jokedate']?>)
 
-            <a href="/joke/edit?id=<?=$joke['id']?>">수정</a>
+            <?php if(isset($userId) && !empty($userId)): ?>
+                <?php if($userId == $joke['authorId']): ?>
+                    <a href="/joke/edit?id=<?=$joke['id']?>">수정</a>
 
-            <form action="/joke/delete" method="post">
-                <input type="hidden" name="id" value="<?=$joke['id']?>">
-                <input type="submit" value="삭제">
-            </form>
+                    <form action="/joke/delete" method="POST">
+                        <input type="hidden" name="id" value="<?=$joke['id']?>">
+                        <input type="submit" value="삭제">
+                    </form>
+                <?php endif;?>
+            <?php endif;?>
         </p>
     </blockquote>
 <?php endforeach;?>

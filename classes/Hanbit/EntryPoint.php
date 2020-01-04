@@ -37,6 +37,8 @@
         {
             $routes = $this->routes->getRoutes();
 
+            $authentication = $this->routes->getAuthentication();
+
             $controller = $routes[$this->route][$this->method]['controller'];
             $action = $routes[$this->route][$this->method]['action'];
 
@@ -50,6 +52,10 @@
                 $output = $this->loadTemplate($page['template']);
             }
 
-            include __DIR__ . '/../../templates/layout.html.php';
+            echo $this->loadTemplate('layout.html.php',[
+               'loggedIn'=> $authentication->isLoggedIn(),
+               'output'=> $output,
+               'title'=> $title
+            ]);
         }
     }
