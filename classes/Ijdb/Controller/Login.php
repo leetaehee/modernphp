@@ -62,7 +62,7 @@
         {
             return [
                 'template'=> 'logout.html.php',
-                'title'=> '로그아웃111 되었습니다.'
+                'title'=> '로그아웃 되었습니다.'
             ];
         }
     }
