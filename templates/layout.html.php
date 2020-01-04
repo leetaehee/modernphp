@@ -22,7 +22,7 @@
                 </li>
                 <?php if ($loggedIn): ?>
                     <li>
-                        <a href="/logout">로그아웃</a>
+                        <a href="/logout/success">로그아웃</a>
                     </li>
                 <?php else: ?>
                     <li>

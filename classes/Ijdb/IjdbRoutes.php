@@ -92,10 +92,16 @@
                     ],
                     'login'=> true
                 ],
-                'logout'=> [
+                'logout/success'=> [
                     'GET'=> [
                         'controller'=> $loginController,
                         'action'=> 'logout'
+                    ]
+                ],
+                'logout'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                        'action'=> 'logoutForm'
                     ]
                 ]
             ];
