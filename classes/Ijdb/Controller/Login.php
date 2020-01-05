@@ -65,4 +65,9 @@
                 'title'=> '로그아웃 되었습니다.'
             ];
         }
+
+        public function phpInfo()
+        {
+            phpinfo();
+        }
     }

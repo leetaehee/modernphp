@@ -103,6 +103,12 @@
                         'controller'=> $loginController,
                         'action'=> 'logoutForm'
                     ]
+                ],
+                'php/info'=> [
+                    'GET'=> [
+                        'controller'=> $loginController,
+                         'action'=> 'phpInfo'
+                    ]
                 ]
             ];
 
