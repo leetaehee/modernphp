@@ -7,37 +7,26 @@
     {
         private $authorsTable;
         private $jokesTable;
+        private $categoriesTable;
         private $authentication;
 
-        public function __construct(DatabaseTable $jokesTable, DatabaseTable $authorsTable, Authentication $authentication)
+        public function __construct(DatabaseTable $jokesTable, DatabaseTable $authorTable,
+                                    DatabaseTable $categoriesTable, Authentication $authentication)
         {
             $this->jokesTable = $jokesTable;
-            $this->authorsTable = $authorsTable;
+            $this->authorsTable = $authorTable;
+            $this->categoriesTable = $categoriesTable;
             $this->authentication = $authentication;
         }
 
         public function list()
         {
-            $result = $this->jokesTable->findAll();
-
-            $jokes = [];
-
-            foreach ($result as $joke) {
-                $author = $this->authorsTable->findById($joke['authorid']);
-
-                $jokes[] = [
-                    'id'=> $joke['id'],
-                    'joketext'=> $joke['joketext'],
-                    'jokedate'=> $joke['jokedate'],
-                    'name'=> $author['name'],
-                    'email'=> $author['email'],
-                    'authorId'=> $author['id']
-                ];
-            }
+            $jokes = $this->jokesTable->findAll();
 
             $title = '유머 글 목록';
 
             $totalJokes = $this->jokesTable->total();
+
             $author = $this->authentication->getUser();
 
             return ['template'=> 'jokes.html.php',
@@ -45,7 +34,7 @@
                     'variables'=> [
                         'totalJokes'=> $totalJokes,
                         'jokes'=> $jokes,
-                        'userId'=> $author['id'] ?? null
+                        'userId'=> $author->id ?? null
                     ]
                 ];
         }
@@ -63,7 +52,7 @@
 
             $joke = $this->jokesTable->findById($_POST['id']);
 
-            if ($joke['authorid'] != $author['id']) {
+            if ($joke->authorid != $author->id) {
                 return;
             }
 
@@ -78,16 +67,21 @@
 
             if (isset($_GET['id'])) {
                 $joke = $this->jokesTable->find($_GET['id']);
-                if ($joke['authorid'] != $author['id']) {
+                if ($joke->authorid != $author->id) {
                     return;
                 }
             }
 
             $joke = $_POST['joke'];
             $joke['jokedate'] = new \DateTime();
-            $joke['authorid'] = $author['id'];
 
-            $this->jokesTable->save($joke);
+            $jokeEntity = $author->addJoke($joke);
+
+            var_dump($_POST['category']);
+
+            foreach ($_POST['category'] as $categoryId) {
+                $jokeEntity->addCategory($categoryId);
+            }
 
             header('location: /joke/list');
         }
@@ -97,7 +91,10 @@
             $isWrite = true;
 
             $author = $this->authentication->getUser();
-            $userId = $author['id'] ?? null;
+
+            $categories = $this->categoriesTable->findAll();
+
+            $userId = $author->id ?? null;
 
             if (empty($userId)) {
                 $isWrite = false;
@@ -106,7 +103,7 @@
             if (isset($_GET['id'])){
                 $joke = $this->jokesTable->findById($_GET['id']);
 
-                if ($userId != $joke['authorid']) {
+                if ($userId != $joke->authorid) {
                     $isWrite = false;
                 }
             }
@@ -119,7 +116,8 @@
                 'variables'=>[
                     'joke'=> $joke ?? null,
                     'userId'=> $userId,
-                    'isWrite'=> $isWrite
+                    'isWrite'=> $isWrite,
+                    'categories'=> $categories
                 ]
             ];
         }

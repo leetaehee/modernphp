@@ -21,11 +21,11 @@
         {
             $user = $this->users->find($this->usernameColumn, strtolower($username));
 
-            if (!empty($user) && password_verify($password, $user[0][$this->passwordColumn])) {
+            if (!empty($user) && password_verify($password, $user[0]->{$this->passwordColumn})) {
                 session_regenerate_id();
 
                 $_SESSION['username'] = $username;
-                $_SESSION['password'] = $user[0][$this->passwordColumn];
+                $_SESSION['password'] = $user[0]->{$this->passwordColumn};
 
                 return true;
             } else {
@@ -41,7 +41,8 @@
 
             $user = $this->users->find($this->usernameColumn, strtolower($_SESSION['username']));
 
-            if (!empty($user) && $user[0][$this->passwordColumn]) {
+            $passwordColumn = $this->passwordColumn;
+            if (!empty($user) && $user[0]->$passwordColumn === $_SESSION['password']) {
                 return true;
             } else {
                 return false;

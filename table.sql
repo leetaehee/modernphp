@@ -33,13 +33,14 @@ INSERT INTO `joke` SET `id`=,`joketext`='why was the empty array stuck outside? 
 
 # 카테고리 테이블
 CREATE TABLE `category` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `name` VARCHAR(255)
-) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB;
+	`id` INT NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NULL,
+    PRIMARY KEY (`id`)
+);
 
 # 카테고리 룩업테이블
-CREATE TABLE `jokecategory` (
-  `jokeid` INT NOT NULL,
-  `categoryid` INT NOT NULL,
-  PRIMARY KEY (`jokeid`,`categoryid`)
-) DEFAULT CHARACTER SET utf8 ENGINE=InnoDB;
+CREATE TABLE `joke_category` (
+	`jokeId` INT NOT NULL,
+    `categoryId` INT NOT NULL,
+    PRIMARY KEY (`jokeId`, `categoryId`)
+);

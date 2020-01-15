@@ -6,21 +6,31 @@
         private $authorTable;
         private $jokesTable;
         private $authentication;
+        private $categoriesTable;
+        private $jokeCategoriesTable;
 
         public function __construct()
         {
             include __DIR__ . '/../../includes/DatabaseConnection.php';
 
-            $this->jokesTable = new \Hanbit\DatabaseTable($pdo, 'joke', 'id');
-            $this->authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id');
-            $this->authentication = new \Hanbit\Authentication($this->authorTable, 'email', 'password');
+            $this->jokesTable = new \Hanbit\DatabaseTable($pdo, 'joke', 'id',
+                '\Ijdb\Entity\Joke', [&$this->authorTable, &$this->jokeCategoriesTable]);
+            $this->authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id',
+                '\Ijdb\Entity\Author', [&$this->jokesTable]);
+            $this->authentication = new \Hanbit\Authentication($this->authorTable, 'email',
+                'password');
+            $this->categoriesTable = new \Hanbit\DatabaseTable($pdo, 'category', 'id');
+            $this->jokeCategoriesTable = new \Hanbit\DatabaseTable($pdo, 'joke_category',
+                'categoryId');
         }
 
         public function getRoutes() : array
         {
-            $jokeController = new \Ijdb\Controller\Joke($this->jokesTable, $this->authorTable, $this->authentication);
+            $jokeController = new \Ijdb\Controller\Joke($this->jokesTable, $this->authorTable,
+                $this->categoriesTable, $this->authentication);
             $authorController = new \Ijdb\Controller\Register($this->authorTable);
             $loginController = new \Ijdb\Controller\Login($this->authentication);
+            $categoryController = new \Ijdb\Controller\Category($this->categoriesTable);
 
             $routes = [
                 'joke/edit'=> [
@@ -103,6 +113,30 @@
                         'controller'=> $loginController,
                         'action'=> 'logoutForm'
                     ]
+                ],
+                'category/edit'=> [
+                    'POST'=> [
+                        'controller'=> $categoryController,
+                        'action'=> 'saveEdit'
+                    ],
+                    'GET'=> [
+                        'controller'=> $categoryController,
+                        'action'=> 'edit'
+                    ]
+                ],
+                'category/list'=> [
+                    'GET'=> [
+                        'controller'=> $categoryController,
+                        'action'=> 'list'
+                    ],
+                    'login'=> true
+                ],
+                'category/delete'=> [
+                    'POST'=> [
+                        'controller'=> $categoryController,
+                        'action'=> 'delete'
+                    ],
+                    'login'=> true
                 ],
                 'php/info'=> [
                     'GET'=> [

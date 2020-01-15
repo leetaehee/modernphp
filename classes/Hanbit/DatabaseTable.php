@@ -6,19 +6,26 @@
         private $pdo;
         private $table;
         private $primaryKey;
+        private $className;
+        private $constructorArgs;
 
-        public function __construct(\PDO $pdo, string $table, string $primaryKey)
+        public function __construct(\PDO $pdo, string $table, string $primaryKey,
+                                    string $className = '\stdClass', array $constructorArgs = [])
         {
             $this->pdo = $pdo;
             $this->table = $table;
             $this->primaryKey = $primaryKey;
+            $this->className = $className;
+            $this->constructorArgs = $constructorArgs;
         }
 
         /**
          *  쿼리 실행
          */
-        private function query($sql, $parameter = []){
+        private function query($sql, $parameter = [])
+        {
             $query = $this->pdo->prepare($sql);
+
             $query->execute($parameter);
             return $query;
         }
@@ -46,7 +53,7 @@
 
             $query = $this->query($query, $parameter);
 
-            return $query->fetch();
+            return $query->fetchObject($this->className, $this->constructorArgs);
         }
 
         /**
@@ -62,7 +69,7 @@
 
             $query = $this->query($query, $parameters);
 
-            return $query->fetchAll();
+            return $query->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
         }
 
         /**
@@ -90,9 +97,9 @@
 
             $fields = $this->processDates($fields);
 
-            echo $query;
-
             $this->query($query, $fields);
+
+            return $this->pdo->lastInsertId();
         }
 
         /**
@@ -134,7 +141,7 @@
         {
             $result = $this->query('SELECT * FROM ' . $this->table);
 
-            return $result->fetchAll();
+            return $result->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
         }
 
         /**
@@ -155,13 +162,27 @@
          */
         public function save($record)
         {
+            $entity = new $this->className(...$this->constructorArgs);
+
             try {
                 if ($record[$this->primaryKey] == ''){
                     $record[$this->primaryKey] = null;
                 }
-                $this->insert($record);
+
+                $insertId = $this->insert($record);
+
+                $entity->{$this->primaryKey} = $insertId;
+
             } catch (\PDOException $e) {
                 $this->update($record);
             }
+
+            foreach ($record as $key => $value) {
+                if (!empty($value)) {
+                    $entity->key = $value;
+                }
+            }
+
+            return $entity;
         }
     }
