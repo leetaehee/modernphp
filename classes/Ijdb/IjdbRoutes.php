@@ -17,11 +17,12 @@
                 '\Ijdb\Entity\Joke', [&$this->authorTable, &$this->jokeCategoriesTable]);
             $this->authorTable = new \Hanbit\DatabaseTable($pdo, 'author', 'id',
                 '\Ijdb\Entity\Author', [&$this->jokesTable]);
-            $this->authentication = new \Hanbit\Authentication($this->authorTable, 'email',
-                'password');
-            $this->categoriesTable = new \Hanbit\DatabaseTable($pdo, 'category', 'id');
+            $this->categoriesTable = new \Hanbit\DatabaseTable($pdo, 'category', 'id',
+                '\Ijdb\Entity\Category', [&$this->jokesTable, &$this->jokeCategoriesTable]);
             $this->jokeCategoriesTable = new \Hanbit\DatabaseTable($pdo, 'joke_category',
                 'categoryId');
+            $this->authentication = new \Hanbit\Authentication($this->authorTable, 'email',
+                'password');
         }
 
         public function getRoutes() : array

@@ -21,7 +21,12 @@
 
         public function list()
         {
-            $jokes = $this->jokesTable->findAll();
+            if (isset($_GET['category'])) {
+                $category = $this->categoriesTable->findById($_GET['category']);
+                $jokes = $category->getJokes();
+            } else {
+                $jokes = $this->jokesTable->findAll();
+            }
 
             $title = '유머 글 목록';
 
@@ -34,7 +39,8 @@
                     'variables'=> [
                         'totalJokes'=> $totalJokes,
                         'jokes'=> $jokes,
-                        'userId'=> $author->id ?? null
+                        'userId'=> $author->id ?? null,
+                        'categories'=> $this->categoriesTable->findAll()
                     ]
                 ];
         }
@@ -77,7 +83,7 @@
 
             $jokeEntity = $author->addJoke($joke);
 
-            var_dump($_POST['category']);
+            $jokeEntity->clearCategories();
 
             foreach ($_POST['category'] as $categoryId) {
                 $jokeEntity->addCategory($categoryId);

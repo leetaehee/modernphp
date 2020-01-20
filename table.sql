@@ -34,13 +34,13 @@ INSERT INTO `joke` SET `id`=,`joketext`='why was the empty array stuck outside? 
 # 카테고리 테이블
 CREATE TABLE `category` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NULL,
-    PRIMARY KEY (`id`)
+  `name` VARCHAR(255) NULL,
+  PRIMARY KEY (`id`)
 );
 
 # 카테고리 룩업테이블
 CREATE TABLE `joke_category` (
 	`jokeId` INT NOT NULL,
-    `categoryId` INT NOT NULL,
-    PRIMARY KEY (`jokeId`, `categoryId`)
+  `categoryId` INT NOT NULL,
+  PRIMARY KEY (`jokeId`, `categoryId`)
 );

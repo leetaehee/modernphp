@@ -185,4 +185,18 @@
 
             return $entity;
         }
+
+        /**
+         * 조건에 해당하는 row만 삭제
+         */
+        public function deleteWhere($column, $value)
+        {
+            $query = 'DELETE FROM ' . $this->table . ' WHERE ' . $column . ' = :value';
+
+            $parameters = [
+                ':value'=> $value
+            ];
+
+            $query =  $this->query($query, $parameters);
+        }
     }

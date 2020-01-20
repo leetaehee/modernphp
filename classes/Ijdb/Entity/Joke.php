@@ -3,7 +3,7 @@
 
     class Joke
     {
-        public $id;
+        public $id = 41;
         public $authorid;
         public $jokedate;
         public $joketext;
@@ -35,5 +35,21 @@
             ];
 
             $this->jokeCategoriesTable->save($jokeCat);
+        }
+
+        public function hasCategory($categoryId)
+        {
+            $jokeCategories = $this->jokeCategoriesTable->find('jokeId', $this->id);
+
+            foreach ($jokeCategories as $jokeCategory) {
+                if ($jokeCategory->categoryId == $categoryId) {
+                    return true;
+                }
+            }
+        }
+
+        public function clearCategories()
+        {
+            $this->jokeCategoriesTable->deleteWhere('jokeId', $this->id);
         }
     }
