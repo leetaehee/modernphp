@@ -3,7 +3,7 @@
 
     class Joke
     {
-        public $id = 41;
+        public $id;
         public $authorid;
         public $jokedate;
         public $joketext;
@@ -48,8 +48,10 @@
             }
         }
 
-        public function clearCategories()
+        public function clearCategories($joke)
         {
+            $this->id = $joke['id'];
+
             $this->jokeCategoriesTable->deleteWhere('jokeId', $this->id);
         }
     }

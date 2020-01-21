@@ -117,7 +117,7 @@
 
             $query .= ' WHERE `' . $this->primaryKey .'` = :primaryKey';
 
-            $fields['primaryKey'] = $fields['id'];
+            $fields['primaryKey'] = $fields[$this->primaryKey];
 
             $fields = $this->processDates($fields);
 

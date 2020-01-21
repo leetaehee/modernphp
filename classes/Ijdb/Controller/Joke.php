@@ -83,7 +83,7 @@
 
             $jokeEntity = $author->addJoke($joke);
 
-            $jokeEntity->clearCategories();
+            $jokeEntity->clearCategories($joke);
 
             foreach ($_POST['category'] as $categoryId) {
                 $jokeEntity->addCategory($categoryId);
