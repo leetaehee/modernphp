@@ -39,7 +39,7 @@
                     'variables'=> [
                         'totalJokes'=> $totalJokes,
                         'jokes'=> $jokes,
-                        'userId'=> $author->id ?? null,
+                        'user'=> $author, // 기존코드 : 'userId' => $author->id
                         'categories'=> $this->categoriesTable->findAll()
                     ]
                 ];
@@ -58,7 +58,7 @@
 
             $joke = $this->jokesTable->findById($_POST['id']);
 
-            if ($joke->authorid != $author->id) {
+            if ($joke->authorid != $author->id && !$author->hasPermission(\Ijdb\Entity\Author::DELETE_JOKES)) {
                 return;
             }
 
@@ -94,7 +94,7 @@
 
         public function edit()
         {
-            $isWrite = true;
+            $isWrite = false;
 
             $author = $this->authentication->getUser();
 
@@ -102,15 +102,11 @@
 
             $userId = $author->id ?? null;
 
-            if (empty($userId)) {
-                $isWrite = false;
-            }
-
             if (isset($_GET['id'])){
                 $joke = $this->jokesTable->findById($_GET['id']);
 
-                if ($userId != $joke->authorid) {
-                    $isWrite = false;
+                if (empty($joke->id) || $author->id == $joke->authorid || $author->hasPermission(\Ijdb\Entity\Author::EDIT_JOKES)) {
+                    $isWrite = true;
                 }
             }
 
@@ -121,7 +117,7 @@
                 'title'=> $title,
                 'variables'=>[
                     'joke'=> $joke ?? null,
-                    'userId'=> $userId,
+                    'user'=> $author,
                     'isWrite'=> $isWrite,
                     'categories'=> $categories
                 ]

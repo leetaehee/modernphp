@@ -19,16 +19,17 @@
                     </a>
                     작성일: <?=$joke->jokedate?>)
 
-                    <?php if(isset($userId) && !empty($userId)): ?>
-                    <?php if($userId == $joke->authorid): ?>
-                    <a href="/joke/edit?id=<?=$joke->id?>">수정</a>
-
-                <form action="/joke/delete" method="POST">
-                    <input type="hidden" name="id" value="<?=$joke->id?>">
-                    <input type="submit" value="삭제">
-                </form>
-                <?php endif;?>
-                <?php endif;?>
+                    <?php if(isset($user) && !empty($user)): ?>
+                        <?php if($user->id == $joke->authorid || $user->hasPermission(\Ijdb\Entity\Author::EDIT_JOKES)): ?>
+                            <a href="/joke/edit?id=<?=$joke->id?>">수정</a>
+                        <?php endif;?>
+                        <?php if($user->id == $joke->authorid || $user->hasPermission(\Ijdb\Entity\Author::DELETE_JOKES)): ?>
+                            <form action="/joke/delete" method="POST">
+                                <input type="hidden" name="id" value="<?=$joke->id?>">
+                                <input type="submit" value="삭제">
+                            </form>
+                        <?php endif;?>
+                    <?php endif;?>
                 </p>
             </blockquote>
         <?php endforeach;?>
