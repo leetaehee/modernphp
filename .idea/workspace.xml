@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f92cc00c-f916-45dd-a0cf-001704786f4a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/authorlist.html.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/permissions.html.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Hanbit/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Hanbit/Routes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Ijdb/Controller/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/Controller/Register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Ijdb/Entity/Author.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/Entity/Author.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classes/Ijdb/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/classes/Ijdb/Entity/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/jokes.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/jokes.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/editjoke.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/editjoke.html.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/jokes.html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jokes.html.php" afterDir="false" />
     </list>
     <list id="c8a3ef71-8ef1-47b0-af82-a220d04bfe72" name="Revert &quot;\Hanbit\Routes.php 파일 추가&quot;" comment="Revert &quot;\Hanbit\Routes.php 파일 추가&quot;&#10;&#10;This reverts commit ecc5671d" />
@@ -48,10 +44,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php">
+        <entry file="file://$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2279">
-              <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
+            <state relative-caret-position="338">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -59,8 +55,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="98" column="29" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+            <state relative-caret-position="180">
+              <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
               <folding>
                 <element signature="e#41#68#0#PHP" expanded="true" />
               </folding>
@@ -69,46 +65,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/editjoke.html.php">
+        <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Category.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="27" />
+            <state relative-caret-position="468">
+              <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Register.php">
+        <entry file="file://$PROJECT_DIR$/templates/jokes.html.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="131" column="45" selection-start-line="131" selection-start-column="45" selection-end-line="131" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/permissions.html.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="37" selection-start-line="11" selection-start-column="37" selection-end-line="11" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/authorlist.html.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="85" selection-start-line="13" selection-start-column="85" selection-end-line="13" selection-end-column="85" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Author.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+            <state relative-caret-position="396">
+              <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -137,6 +106,9 @@
       <find>41</find>
       <find>deleteWhere</find>
       <find>$jokeEntity</find>
+      <find>findAll</find>
+      <find>exit</find>
+      <find>total</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -169,12 +141,8 @@
         <option value="$PROJECT_DIR$/templates/editcategory.html.php" />
         <option value="$PROJECT_DIR$/templates/categories.html.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Controller/Category.php" />
-        <option value="$PROJECT_DIR$/public/jokes.css" />
-        <option value="$PROJECT_DIR$/templates/editjoke.html.php" />
         <option value="&lt;b0d239d7-8401-4ac5-ba79-3a1ab30dbb44&gt;/classes/Hanbit/DatabaseTable.php" />
         <option value="&lt;b0d239d7-8401-4ac5-ba79-3a1ab30dbb44&gt;/templates/editjoke.html.php" />
-        <option value="$PROJECT_DIR$/classes/Ijdb/Entity/Category.php" />
-        <option value="$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Entity/Joke.php" />
         <option value="$PROJECT_DIR$/classes/Hanbit/Routes.php" />
         <option value="$PROJECT_DIR$/classes/Hanbit/EntryPoint.php" />
@@ -183,8 +151,12 @@
         <option value="$PROJECT_DIR$/table.sql" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Controller/Register.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Entity/Author.php" />
+        <option value="$PROJECT_DIR$/templates/editjoke.html.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php" />
+        <option value="$PROJECT_DIR$/public/jokes.css" />
         <option value="$PROJECT_DIR$/templates/jokes.html.php" />
+        <option value="$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php" />
+        <option value="$PROJECT_DIR$/classes/Ijdb/Entity/Category.php" />
         <option value="$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php" />
       </list>
     </option>
@@ -201,7 +173,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,6 +230,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,7 +320,9 @@
       <workItem from="1579557396540" duration="2149000" />
       <workItem from="1579604145809" duration="3958000" />
       <workItem from="1579609558654" duration="75000" />
-      <workItem from="1579689348182" duration="3137000" />
+      <workItem from="1579689348182" duration="3445000" />
+      <workItem from="1579694183239" duration="52000" />
+      <workItem from="1579765704523" duration="5085000" />
     </task>
     <task id="LOCAL-00001" summary="라우터 기능 완료 &#10;2019-12-28 &#10;이태희 &#10;어달해변 투썸플레이스에서 작업완료 &#10;20:40 마무리">
       <created>1577533246515</created>
@@ -497,11 +471,18 @@
       <option name="project" value="LOCAL" />
       <updated>1579604373729</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="닌자비법서 관계 실습 4차(관계 관련 마지막 실습_) 업로드  2020-01-22 이태희">
+      <created>1579692988300</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1579692988300</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79586000" />
+    <option name="totallyTimeSpent" value="85031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -516,7 +497,7 @@
     <frame x="0" y="23" width="1680" height="979" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2759463" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2820513" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -528,8 +509,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3298611" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3298611" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" visible="true" weight="0.33796296" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.3298611" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4993895" weight="0.33796296" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50061053" side_tool="true" weight="0.33796296" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.4993895" weight="0.3298611" />
       <window_info active="true" anchor="bottom" id="Database Console" order="13" visible="true" weight="0.3298611" />
@@ -631,7 +612,8 @@
     <MESSAGE value="닌자비법서 관계 실습 1차 업로드  2020-01-15 이태희" />
     <MESSAGE value="닌자비법서 관계 실습 2차 업로드  2020-01-20 이태희" />
     <MESSAGE value="닌자비법서 관계 실습 3차 업로드  2020-01-21 이태희" />
-    <option name="LAST_COMMIT_MESSAGE" value="닌자비법서 관계 실습 3차 업로드  2020-01-21 이태희" />
+    <MESSAGE value="닌자비법서 관계 실습 4차(관계 관련 마지막 실습_) 업로드  2020-01-22 이태희" />
+    <option name="LAST_COMMIT_MESSAGE" value="닌자비법서 관계 실습 4차(관계 관련 마지막 실습_) 업로드  2020-01-22 이태희" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/1f87c5f1-c838-4894-a2a6-426913dff89a/console.sql">
@@ -775,13 +757,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/jokes.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="42" column="17" lean-forward="true" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -789,38 +764,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="197" column="14" lean-forward="true" selection-start-line="197" selection-start-column="14" selection-end-line="197" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Joke.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="25" column="72" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="72" />
         </state>
       </provider>
     </entry>
@@ -845,13 +792,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="131" column="45" selection-start-line="131" selection-start-column="45" selection-end-line="131" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/classes/Hanbit/EntryPoint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="548">
@@ -873,38 +813,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/jokes.html.php">
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="119" lean-forward="true" selection-start-line="25" selection-start-column="119" selection-end-line="25" selection-end-column="119" />
+        <state relative-caret-position="396">
+          <caret line="131" column="45" selection-start-line="131" selection-start-column="45" selection-end-line="131" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php">
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2279">
-          <caret line="162" column="35" selection-start-line="162" selection-start-column="35" selection-end-line="162" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Author.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        <state relative-caret-position="386">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/editjoke.html.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="27" />
+        <state relative-caret-position="238">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/DatabaseFunctions.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/IjdbRoutes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="127" column="59" lean-forward="true" selection-start-line="127" selection-start-column="59" selection-end-line="127" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Author.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Joke.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/jokes.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="51" column="13" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/jokes.html.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Hanbit/DatabaseTable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/classes/Ijdb/Entity/Category.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/classes/Ijdb/Controller/Joke.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="98" column="29" lean-forward="true" selection-start-line="98" selection-start-column="29" selection-end-line="98" selection-end-column="29" />
+        <state relative-caret-position="180">
+          <caret line="33" column="57" selection-start-line="33" selection-start-column="57" selection-end-line="33" selection-end-column="57" />
           <folding>
             <element signature="e#41#68#0#PHP" expanded="true" />
           </folding>

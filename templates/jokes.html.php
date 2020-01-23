@@ -32,6 +32,20 @@
                     <?php endif;?>
                 </p>
             </blockquote>
-        <?php endforeach;?>
+        <?php endforeach; ?>
+        <?php
+            // 페이지수 계산
+            $numPages = ceil($totalJokes/10);
+
+            // 각 페이지 링크 표시
+            for ($i = 1; $i <= $numPages; $i++):
+                if ($i == $currentPage):
+        ?>
+                    <a class="currentpage" href="/joke/list?page=<?=$i?><?=!empty($categoryId) ?
+                        '&category=' . $categoryId : ''?>"><?=$i?></a>
+        <?php  else: ?>
+            <a href="/joke/list?page=<?=$i?><?=!empty($categoryId) ? '&category=' . $categoryId : ''?>"><?=$i?></a>
+        <?php  endif; ?>
+        <?php endfor;?>
     </div>
 </div>

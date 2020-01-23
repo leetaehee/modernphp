@@ -21,16 +21,20 @@
 
         public function list()
         {
+            $page = $_GET['page'] ?? 1;
+
+            $offset = ($page-1)*10;
+
             if (isset($_GET['category'])) {
                 $category = $this->categoriesTable->findById($_GET['category']);
-                $jokes = $category->getJokes();
+                $jokes = $category->getJokes(10, $offset);
+                $totalJokes = $category->getNumJokes();
             } else {
-                $jokes = $this->jokesTable->findAll();
+                $jokes = $this->jokesTable->findAll('jokedate DESC', 10, $offset);
+                $totalJokes = $this->jokesTable->total();
             }
 
             $title = '유머 글 목록';
-
-            $totalJokes = $this->jokesTable->total();
 
             $author = $this->authentication->getUser();
 
@@ -40,7 +44,9 @@
                         'totalJokes'=> $totalJokes,
                         'jokes'=> $jokes,
                         'user'=> $author, // 기존코드 : 'userId' => $author->id
-                        'categories'=> $this->categoriesTable->findAll()
+                        'categories'=> $this->categoriesTable->findAll(),
+                        'currentPage'=> $page,
+                        'category'=> $_GET['category'] ?? null
                     ]
                 ];
         }
@@ -94,20 +100,12 @@
 
         public function edit()
         {
-            $isWrite = false;
-
             $author = $this->authentication->getUser();
 
             $categories = $this->categoriesTable->findAll();
 
-            $userId = $author->id ?? null;
-
             if (isset($_GET['id'])){
                 $joke = $this->jokesTable->findById($_GET['id']);
-
-                if (empty($joke->id) || $author->id == $joke->authorid || $author->hasPermission(\Ijdb\Entity\Author::EDIT_JOKES)) {
-                    $isWrite = true;
-                }
             }
 
             $title = '유머 글 수정';
@@ -118,7 +116,6 @@
                 'variables'=>[
                     'joke'=> $joke ?? null,
                     'user'=> $author,
-                    'isWrite'=> $isWrite,
                     'categories'=> $categories
                 ]
             ];

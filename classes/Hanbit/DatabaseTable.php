@@ -33,10 +33,21 @@
         /**
          * 테이블의 전체 로우 개수 구하기
          */
-        public function total()
+        public function total($field = null, $value = null)
         {
-            $query = $this->query('SELECT COUNT(*) FROM `'. $this->table .'`');
+            $sql = 'SELECT COUNT(*) FROM `' .$this->table.'`';
+            $parameters = [];
+
+            if (!empty($field)) {
+                $sql .= ' WHERE `'.$field.'` =:value';
+
+                $parameters = ['value'=> $value];
+            }
+
+            $query = $this->query($sql, $parameters);
+
             $row = $query->fetch();
+
             return $row[0];
         }
 
@@ -59,13 +70,25 @@
         /**
          * 컬럼을 받아서 해당 컬럼으로 데이터 조회
          */
-        public function find($column, $value)
+        public function find($column, $value, $orderby = null, $limit = null, $offset = null)
         {
             $query = 'SELECT * FROM ' . $this->table . ' WHERE ' . $column . ' = :value';
 
             $parameters = [
               'value'=> $value
             ];
+
+            if ($orderby != null) {
+                $query .= ' ORDER BY ' . $orderby;
+            }
+
+            if ($limit != null) {
+                $query .= ' LIMIT ' . $limit;
+            }
+
+            if ($offset != null) {
+                $query .= ' OFFSET ' . $offset;
+            }
 
             $query = $this->query($query, $parameters);
 
@@ -137,9 +160,23 @@
         /**
          * 테이블의 모든 데이터 가져오기
          */
-        public function findAll()
+        public function findAll($orderby = null, $limit = null, $offset = null)
         {
-            $result = $this->query('SELECT * FROM ' . $this->table);
+            $query = 'SELECT * FROM ' . $this->table;
+
+            if ($orderby != null) {
+                $query .= ' ORDER BY ' . $orderby;
+            }
+
+            if ($limit != null) {
+                $query .= ' LIMIT ' . $limit;
+            }
+
+            if ($offset != null) {
+                $query .= ' OFFSET ' . $offset;
+            }
+
+            $result = $this->query($query);
 
             return $result->fetchAll(\PDO::FETCH_CLASS, $this->className, $this->constructorArgs);
         }
