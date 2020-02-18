@@ -13,7 +13,7 @@
                 <p>
                     <?=htmlspecialchars($joke->joketext,ENT_QUOTES,'utf-8')?>
                     (작성자:
-                    <a href="mailto:<?=htmlspecialchars($joke->email,ENT_QUOTES,'utf-8');?>">
+                    <a href="mailto:<?=htmlspecialchars($joke->getAuthor()->email,ENT_QUOTES,'utf-8');?>">
                         <?=htmlspecialchars($joke->getAuthor()->email,ENT_QUOTES,'utf-8');?>
                         <?=htmlspecialchars($joke->getAuthor()->name,ENT_QUOTES,'utf-8');?>
                     </a>
